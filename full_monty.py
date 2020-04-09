@@ -113,7 +113,8 @@ for file in files:
                     country_name = None
                     
                 cache[client_ip] = {'city': city, 'region': region, 'country_name': country_name}
-                results.append([creation_time, user_id, client_ip, city, region, country_name])        
+                
+        results.append([creation_time, user_id, client_ip, city, region, country_name])        
 
   
 # Convert List of Lists to Dataframe 
