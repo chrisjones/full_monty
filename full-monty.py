@@ -24,7 +24,7 @@ extension = "csv"
 files = glob.glob('*.{}'.format(extension))
 
 
-# Setup Outbound Comprension Location
+# Setup Outbound Comprehension Location
 path = '../'
 if not os.path.isdir(outdir):
 	os.mkdir(outdir)
@@ -39,6 +39,8 @@ results = []
 # Setup GeoIP service
 #
 # https://ipinfo.io/signup - SignUp for Free for 50,000 queries per month
+# Place API token in .env file in same folder as this script, like:
+# ipinfo-api-token="1234567890aabcdef"
 #
 load_dotenv()
 access_token = os.environ.get("ipinfo-api-token")
