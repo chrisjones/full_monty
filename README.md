@@ -4,7 +4,7 @@ This is a MO365 Log Parser inspired by https://github.com/nov3mb3r/monte-carlo. 
 
 ### Install
 
-1. Simply activate the Python environment
+1. Activate the Python environment with python -m venv env
 
 2. Install the dependencies with pip install -r requirements.txt
 
