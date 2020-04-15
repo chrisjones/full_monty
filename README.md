@@ -4,6 +4,8 @@ This is a MO365 Log Parser inspired by https://github.com/nov3mb3r/monte-carlo. 
 
 ## Install
 
+Note: this script was developed using Python v3.7.2 specifically; it may/may not be compatible with Python2.
+
 1. Create and Activate the Python environment: 
 
    ```
@@ -17,7 +19,7 @@ This is a MO365 Log Parser inspired by https://github.com/nov3mb3r/monte-carlo. 
 2. Install the dependencies:
 
    ```
-   pip install -r requirements.txt
+   pip3 install -r requirements.txt
    ```
 
 3. Execute:
