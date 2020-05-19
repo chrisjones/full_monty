@@ -72,6 +72,9 @@ for file in files:
     df = pd.read_csv(file)
 
     for index, row in df.iterrows():
+        if row['Operations'] != 'UserLoggedIn':
+            continue
+
         audit_data_dict = json.loads(row['AuditData'])
         creation_time = audit_data_dict['CreationTime']
         user_id = audit_data_dict['UserId']
@@ -79,7 +82,7 @@ for file in files:
         if audit_data_dict.get('ClientIP'):
             client_ip = standardize_ip(audit_data_dict['ClientIP'])
         else:
-            pass
+            continue
 
         # Check Cache and Load if Missing
         if client_ip in cache:
@@ -112,6 +115,7 @@ for file in files:
                 except:
                     country_name = None
                     
+                print('Geolocated IP Address: {}'.format(client_ip))
                 cache[client_ip] = {'city': city, 'region': region, 'country_name': country_name}
                 
         results.append([creation_time, user_id, client_ip, city, region, country_name])        
