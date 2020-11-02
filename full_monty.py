@@ -72,17 +72,18 @@ for file in files:
     df = pd.read_csv(file)
 
     for index, row in df.iterrows():
-        if row['Operations'] != 'UserLoggedIn':
+        
+        if row[2] != 'UserLoggedIn':
             continue
 
-        audit_data_dict = json.loads(row['AuditData'])
+        audit_data_dict = json.loads(row[3])
         creation_time = audit_data_dict['CreationTime']
         user_id = audit_data_dict['UserId']
         
         if audit_data_dict.get('ClientIP'):
-            client_ip = standardize_ip(audit_data_dict['ClientIP'])
+             client_ip = standardize_ip(audit_data_dict['ClientIP'])
         else:
-            continue
+             continue
 
         # Check Cache and Load if Missing
         if client_ip in cache:
